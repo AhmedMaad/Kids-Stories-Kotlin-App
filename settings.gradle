@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name = "Kids Stories App"

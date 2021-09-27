@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:textColor="#000"
             tools:text="@tools:sample/full_names"
-            tools:textSize="20sp" />
+            tools:textSize="24sp" />
 
         <ImageView
             android:id="@+id/iv"

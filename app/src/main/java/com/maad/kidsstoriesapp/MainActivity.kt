@@ -1,19 +1,18 @@
 package com.maad.kidsstoriesapp
 
 import android.content.Intent
-import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
 
-
 class MainActivity : AppCompatActivity() {
 
     val titles = arrayOf(
         "The bee and the grasshopper", "Chicken Little", "The hungry cat",
-        "The ugly duckling")
+        "The ugly duckling"
+    )
     val sounds = arrayOf(R.raw.bee, R.raw.chicken, R.raw.cat, R.raw.duck)
     val pictures = arrayOf(R.drawable.bee, R.drawable.chicken, R.drawable.cat, R.drawable.duck)
     val stories = arrayOf(
@@ -100,15 +99,13 @@ One morning the ugly duckling sees the beautiful swans again. He knows them. He 
         val list: ListView = findViewById(R.id.lv)
         list.adapter = adapter
 
-        list.setOnItemClickListener { parent, view, position, id ->
-
-            val media = MediaPlayer.create(this, sounds[position])
-            media.start()
+        list.setOnItemClickListener { _, _, position, _ ->
 
             val i = Intent(this, StoryActivity::class.java)
             i.putExtra("title", titles[position])
             i.putExtra("picture", pictures[position])
             i.putExtra("story", stories[position])
+            i.putExtra("sound", sounds[position])
             startActivity(i)
         }
 
